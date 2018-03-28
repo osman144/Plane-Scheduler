@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body style="background-color:black;">
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<div class="container" style="margin:0px auto;">
+        <nav class="navbar navbar-dark bg-primary" style="background-color:forestgreen">
+            <div style="font-size:70px; text-align:center; font-weight:bold;">
+                Anytime is Plane Time. 
+            </div>
+            <div style="text-align:center; font-size:30px">
+                    A comprehensive tracker of planes and stuff  
+            </div>
+        </nav>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" id="current-employees">Current Plane Schedule</h3>
+        </div>
+        <div class="panel-body">
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Plane Name</th>
+                        <th>Destination</th>
+                        <th>Frequency (hour)</th>
+                        <th>Next Arrival</th>
+                        <th>Minutes away</th>
+            
+
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr class="row1">
+                        <td>Spirit example</td>
+                        <td>purg</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                        <td>n/a</td>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" id="current-employees">Add Plane</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="employee-name-input">Plane Name</label>
+                    <input class="form-control" id="plane-name-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="role-input">Destination</label>
+                    <input class="form-control" id="destination-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="start-input">First Plane Time</label>
+                    <input class="form-control" id="time-input" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="rate-input">Frequency (hour)</label>
+                    <input class="form-control" id="frequency-input" type="text">
+                </div>
+                <button class="btn btn-primary" id="submit-btn" type="submit">Submit</button>
+            </form>
+        
+        </div>
+    </div>
+
+</div>
+
+<script src="index.js"></script>
+
+    
+</body>
+</html>
