@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
 
 // Initialize Firebase
 var config = {
@@ -22,20 +23,37 @@ let frequency= 0;
 let nextArrival= "";
 let minutesAway= "";
 
+let currentTime = moment().subtract(1, "years").format('HH:mm');
+
+
 //Create a click event 
 $('#submit-btn').on("click", function (){
     event.preventDefault();
 
+
+    
     //Grab the variables from the input
 
     let planeName = $('#plane-name-input').val().trim();
     let destination= $('#destination-input').val().trim();
     let frequency= $('#frequency-input').val().trim();
-    let nextArrival= $('#time-input').val().trim();
+    let nextArrival= $("#time-input").val().trim(); //3AM
 
-    let minutesAway=  (nextArrival)+(frequency); //Fix this 
-    
-    console.log(planeName,destination,frequency,nextArrival,minutesAway);
+    //Calculations 
+    let time = moment();
+    let timeConverted = moment(time, "HH:mm").subtract(1, "years");
+    console.log(timeConverted.format());
+    let diffTime = time.diff(timeConverted, "minutes");
+    let diffTime1 = moment().diff(timeConverted, "minutes");
+    console.log(diffTime);
+    console.log(diffTime1);
+
+    let tRemainder = diffTime % frequency;
+    console.log(tRemainder);
+
+    // next plane arrival in minutes
+    minutesAway = frequency - tRemainder;
+    console.log(minutesAway);
 
     //Create object for the variables to simplify
 
@@ -47,6 +65,14 @@ $('#submit-btn').on("click", function (){
         minutesAway: minutesAway,
     }
 
+
+
+    // next train arrival in HH:mm format
+    console.log(time.format("HH:mm A"))
+    console.log(moment().format("HH:mm A"))
+    nextArrival = moment().add(minutesAway, "minutes").format("HH:mm A");
+    console.log(nextArrival);
+    
     //Send to firebase 
 
     database.ref().push(pushObject);
@@ -71,10 +97,6 @@ $('#submit-btn').on("click", function (){
 
     $('.tbody').append(tr);
     });
-
-
-
-
 
 
 
